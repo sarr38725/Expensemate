@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import '../db/database_helper.dart';
 import 'package:expensemate_rohit/generated/app_localizations.dart';
 
-
 class AddTransactionScreen extends StatefulWidget {
   const AddTransactionScreen({super.key});
 
@@ -17,29 +16,39 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
   final TextEditingController _dateController = TextEditingController();
 
   final List<String> _categories = [
-    'Food', 'Shopping', 'Fuel', 'Salary', 'Subscription', 'Grocery',
-    'Personal', 'Travel', 'Medicine', 'Entertainment', 'Bills',
-    'Education', 'Investment', 'Others',
+    'Food',
+    'Shopping',
+    'Fuel',
+    'Salary',
+    'Subscription',
+    'Grocery',
+    'Personal',
+    'Travel',
+    'Medicine',
+    'Entertainment',
+    'Bills',
+    'Education',
+    'Investment',
+    'Others',
   ];
 
   String _selectedCategory = 'Food';
   String _selectedType = 'Income';
   DateTime _selectedDate = DateTime.now();
 
-  /// ✅ Localized category list (refreshed in didChangeDependencies)
   late List<String> _localizedCategories;
 
   @override
   void initState() {
     super.initState();
-    // ⚠️ Do NOT use context-dependent logic here
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _updateDateText();
-    _localizedCategories = _getLocalizedCategories(AppLocalizations.of(context)!);
+    _localizedCategories =
+        _getLocalizedCategories(AppLocalizations.of(context)!);
   }
 
   void _updateDateText() {
@@ -74,6 +83,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
       lastDate: DateTime(2100),
       locale: Localizations.localeOf(context),
     );
+
     if (picked != null) {
       setState(() {
         _selectedDate = picked;
@@ -135,18 +145,26 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFFDF7F0),
         elevation: 0,
-        title: Text(local.addTransaction, style: const TextStyle(color: Colors.black)),
+        title: Text(
+          local.addTransaction,
+          style: const TextStyle(color: Colors.black),
+        ),
         iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
-            Text(local.howMuch, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Text(
+              local.howMuch,
+              style:
+              const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 10),
             TextField(
               controller: _amountController,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType:
+              const TextInputType.numberWithOptions(decimal: true),
               decoration: InputDecoration(
                 prefixIcon: const Padding(
                   padding: EdgeInsets.all(12.0),
@@ -158,11 +176,14 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
             ),
             const SizedBox(height: 20),
 
-            /// Localized Category Dropdown
+            // Localized Category Dropdown
             DropdownButtonFormField<String>(
               value: _localizedCategories[_categories.indexOf(_selectedCategory)],
               items: _localizedCategories
-                  .map((label) => DropdownMenuItem(value: label, child: Text(label)))
+                  .map(
+                    (label) =>
+                    DropdownMenuItem(value: label, child: Text(label)),
+              )
                   .toList(),
               onChanged: (val) {
                 final index = _localizedCategories.indexOf(val!);
@@ -186,7 +207,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
             ),
             const SizedBox(height: 20),
 
-            /// Income / Expense Type Selection
+            // Income / Expense Type Selection
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -194,14 +215,16 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                   label: Text(local.income),
                   selected: _selectedType == 'Income',
                   selectedColor: Colors.green,
-                  onSelected: (_) => setState(() => _selectedType = 'Income'),
+                  onSelected: (_) =>
+                      setState(() => _selectedType = 'Income'),
                 ),
                 const SizedBox(width: 12),
                 ChoiceChip(
                   label: Text(local.expense),
                   selected: _selectedType == 'Expense',
                   selectedColor: Colors.red,
-                  onSelected: (_) => setState(() => _selectedType = 'Expense'),
+                  onSelected: (_) =>
+                      setState(() => _selectedType = 'Expense'),
                 ),
               ],
             ),
@@ -225,8 +248,11 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                 backgroundColor: Colors.deepPurple,
                 padding: const EdgeInsets.symmetric(vertical: 16),
               ),
-              child: Text(local.continueButton,
-                  style: const TextStyle(fontSize: 16, color: Colors.white)),
+              child: Text(
+                local.continueButton,
+                style:
+                const TextStyle(fontSize: 16, color: Colors.white),
+              ),
             ),
           ],
         ),

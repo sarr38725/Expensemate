@@ -14,7 +14,7 @@ import 'screens/statistics_screen.dart';
 import 'screens/transaction_screen.dart';
 import 'screens/add_transaction_screen.dart';
 import 'screens/settings_screen.dart';
-import 'screens/balance_summary_screen.dart'; // ✅ Added for balance summary screen
+import 'screens/balance_summary_screen.dart'; //  Added for balance summary screen
 
 // Locale Provider
 class LocaleProvider extends ChangeNotifier {
@@ -81,7 +81,7 @@ class ExpenseApp extends StatelessWidget {
             '/transactions': (context) => const TransactionScreen(),
             '/add': (context) => const AddTransactionScreen(),
             '/settings': (context) => const SettingsScreen(),
-            '/balance-summary': (context) => const BalanceSummaryScreen(), // ✅ Added route
+            '/balance-summary': (context) => const BalanceSummaryScreen(), //  Added route
           },
         );
       },

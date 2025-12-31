@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../main.dart'; // ✅ EntryPoint import
-import 'package:expensemate_rohit/generated/app_localizations.dart';// ✅ Localization import
+import '../main.dart'; //  EntryPoint import
+import 'package:expensemate_rohit/generated/app_localizations.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
