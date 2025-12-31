@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "ExpenseMate",
+    "slug": "expensemate",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/app_icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FDF7F0"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.expensemate.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/app_icon.png",
+        "backgroundColor": "#FDF7F0"
+      },
+      "package": "com.expensemate.app"
+    },
+    "web": {
+      "favicon": "./assets/images/app_icon.png"
+    }
+  }
+}
