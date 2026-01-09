@@ -99,5 +99,8 @@
   "expenseLabel": "ব্যয়",
   "noData": "কোনো তথ্য পাওয়া যায়নি",
   "balance": "ব্যালেন্স",
-  "balanceSummary": "ব্যালেন্স সারসংক্ষেপ"
+  "balanceSummary": "ব্যালেন্স সারসংক্ষেপ",
+  "error": "ত্রুটি",
+  "success": "সফল",
+  "errorSavingTransaction": "লেনদেন সংরক্ষণ করতে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।"
 }

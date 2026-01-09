@@ -50,17 +50,17 @@ export default function AddTransactionScreen({ navigation }) {
 
   const handleSave = async () => {
     if (!amount || !description) {
-      Alert.alert(t('allFieldsRequired'));
+      Alert.alert(t('error'), t('allFieldsRequired'));
+      return;
+    }
+
+    const parsedAmount = parseFloat(amount);
+    if (isNaN(parsedAmount) || parsedAmount <= 0) {
+      Alert.alert(t('error'), t('invalidAmount'));
       return;
     }
 
     try {
-      const parsedAmount = parseFloat(amount);
-      if (isNaN(parsedAmount)) {
-        Alert.alert(t('invalidAmount'));
-        return;
-      }
-
       await DatabaseHelper.addTransaction(
         parsedAmount,
         category,
@@ -69,10 +69,15 @@ export default function AddTransactionScreen({ navigation }) {
         description
       );
 
-      Alert.alert(t('transactionSaved'));
-      navigation.goBack();
+      Alert.alert(t('success'), t('transactionSaved'), [
+        { text: 'OK', onPress: () => navigation.goBack() }
+      ]);
     } catch (error) {
-      Alert.alert(t('invalidAmount'));
+      console.error('Error saving transaction:', error);
+      Alert.alert(
+        t('error'),
+        error.message || t('errorSavingTransaction')
+      );
     }
   };
 

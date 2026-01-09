@@ -99,5 +99,8 @@
   "expenseLabel": "Expense",
   "noData": "No data available",
   "balance": "Balance",
-  "balanceSummary": "Balance Summary"
+  "balanceSummary": "Balance Summary",
+  "error": "Error",
+  "success": "Success",
+  "errorSavingTransaction": "Failed to save transaction. Please try again."
 }
